@@ -1,7 +1,7 @@
 const express =require('express')
 const PORT=8000
 const app =express()
-
+require('./db_init');
 app.get('/',(req,res,next)=>{
     res.send('welcome to e-commerce site')
 })
