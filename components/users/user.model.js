@@ -43,7 +43,8 @@ const userSchema= new mongoose.Schema({
         default:'nepal'
     },
     image:{
-        type:String
+        type:String,
+     
     },
 
 })

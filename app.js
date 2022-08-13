@@ -1,10 +1,18 @@
 const express =require('express')
-const PORT=8000
+const PORT=8008
 const app =express()
+const bodyParser= require('body-parser')
+const API_Route =require('./api.routes')
 require('./db_init');
+
+app.use(express.json())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.get('/',(req,res,next)=>{
     res.send('welcome to e-commerce site')
 })
+app.use('/',API_Route)
 
 app.use( (err,req,res,next)=>{
     console.log('middleware from app level',err)
