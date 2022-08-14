@@ -1,6 +1,6 @@
 const JWT =require('jsonwebtoken')
-const configs=require('./../configs')
-const UserModel=require('./../models/user.model')
+const JWT_SECRET='sfssdbxdgstgs1411fvsfg'
+const UserModel=require('./../components/users/user.model')
 
 module.exports =function(req,res,next){
     let token;
@@ -12,14 +12,14 @@ module.exports =function(req,res,next){
         token=req.query['token']
     if(!token){
         return next ({
-            msg:"Authemtication Failed,TOken Not provided",
+            msg:"Authentication Failed,Token Not provided",
             status:401
         })
     }
     // console.log('token>>',token)
     //token available now validate
     token=token.split(' ')[1]
-    JWT.verify(token,configs.JWT_SECRET,function(err,done){
+    JWT.verify(token,JWT_SECRET,function(err,done){
         if (err){
             return next(err)
 

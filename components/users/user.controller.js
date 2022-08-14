@@ -6,12 +6,20 @@ const userModel =require('./user.model');
 function user(req,res,next){
     userQuery.find(req,res,next)
 }
-function updatereg(req,res,next){
-    userQuery.put_reg(req,res,next)
+function updateUser(req,res,next){
+    userQuery.put_user(req,res,next)    
+}
+function singleUser(req,res,next){
+    userQuery.getUserById(req,res,next)
+}
+function delUser(req,res,next){
+    userQuery.delUserById(req,res,next)
 }
 module.exports={
     user,
-    updatereg
+    updateUser,
+    singleUser,
+    delUser
 
     
 }

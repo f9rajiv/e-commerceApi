@@ -68,6 +68,7 @@ router.post('/register',uploader.single('image'),function(req,res,next){
     if (req.file){
 
        newUser.image =req.file.filename
+       
     }
     newUser.save(function(err,done){
             if(err){

@@ -7,8 +7,8 @@ router.route('/')
 
 
 router.route('/:id')
-// .get(userCtrl.singleUser)
-.put(uploader.single('image'),userCtrl.updatereg)
-// .delete(userCtrl.delUser)
+.get(userCtrl.singleUser)
+.put(uploader.single('image'),userCtrl.updateUser)
+.delete(userCtrl.delUser)
 
 module.exports=router;
