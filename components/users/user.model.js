@@ -20,8 +20,9 @@ const userSchema= new mongoose.Schema({
     },
     role:{
         type:Number, //1. for admin ,2. for customers
-        default:2
+        default:2,
     },
+        
     phoneNumber:{
         type:Number,
         required:true,

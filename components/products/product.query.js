@@ -75,7 +75,8 @@ function find(condition){
         .find(condition,{
             category:1,
             name:1,
-            reviews:1
+            reviews:1,
+            images:1
 
         })
         .sort({
