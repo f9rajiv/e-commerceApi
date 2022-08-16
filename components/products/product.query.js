@@ -70,7 +70,7 @@ function map_review_data(reviewData,review){
 
 
 function find(condition){
-    // return new Promise(function(resolve,reject){
+   
         return ProductModel
         .find(condition,{
             category:1,
@@ -90,9 +90,7 @@ function find(condition){
             email:1
 
         })
-        .exec()//yeta exec ko promise le kaam garxa seprate parena
-
-    // })
+        .exec()
    
 }
 
@@ -120,7 +118,7 @@ function update(id,data){
             if(data.newImages){
                 product.images=product.images.concat(data.newImages)
             }
-            //if Product Found Update
+        
             map_product_req(data,product)
             product.save(function(err,updated){
                 if(err){
@@ -133,7 +131,7 @@ function update(id,data){
 
 }
 function remove(id){
-    return ProductModel.findByIdAndRemove(id) ///returned theri promise
+    return ProductModel.findByIdAndRemove(id) 
 
 }
 function addReview(productId,reviewData){

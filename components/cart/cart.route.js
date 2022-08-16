@@ -4,7 +4,7 @@ const authenticate =require('./../../middlewares/authentication')
 const authorize =require('./../../middlewares/authorization')
 
 router.route('/')
-    .get(cartCtrl.get)
-    .post(cartCtrl.post)
+    .get(authenticate,cartCtrl.get)
+    .post(authenticate,authorize,cartCtrl.post)
 
     module.exports =router;

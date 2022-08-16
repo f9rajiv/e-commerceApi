@@ -1,7 +1,11 @@
 const cartQuery =require('./cart.query')
 
 function get(req,res,next){
-    cartQuery.find()
+    const condition={};
+    if (req.user.role !== 1){
+        condition.orderId=req.user._id
+    }
+    cartQuery.find(condition)
     .then(function(results){
         res.json(results)
     })
@@ -12,7 +16,10 @@ function get(req,res,next){
 }
 function post(req,res,next){
     
-    const data =req.body;
+    const data =req.body
+    data.orderId = req.user._id;
+    data.product = req.user._id;
+
    cartQuery
      .insert(data)
      .then(function(response){

@@ -3,29 +3,26 @@ function map_cart_data(cartData,cart){
     if(cartData.orderId)
         cart.orderId=cartData.orderId
     if(cartData.addToCart)
-        product.addToCart=true;
+        cart.addToCart=true;
     if(cartData.setaddToCartFalse)
-        product.addToCart=false;
+        cart.addToCart=false;
     if(cartData.product)
         cart.product=cartData.product
 
     
 }
-function find(){
-    // return new Promise(function(resolve,reject){
+function find(condition){
+    
         return cartModel
-        .find()
+        .find(condition)
         .populate('product',{
+            name:1
+        })
+        .populate('orderId',{
             username:1,
             email:1
         })
-        .populate('user',{
-            email:1
-
-        })
-        .exec()//yeta exec ko promise le kaam garxa seprate parena
-
-    // })
+        .exec()
    
 }
 function insert(data){
